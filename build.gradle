@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 def LIB_GROUP_ID = 'com.windscribe'
 def LIB_ARTIFACT_ID = 'controld'
-def LIB_VERSION = '1.3.6'
+def LIB_VERSION = '1.3.4'
 def aarFile = layout.buildDirectory.file("ctrld.aar")
 
 task build() {
