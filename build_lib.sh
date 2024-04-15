@@ -37,9 +37,7 @@ update_versionInfo() {
         }
     ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
 }
-wget https://storage.googleapis.com/golang/go1.20.linux-amd64.tar.gz
-tar -C ~ -xzvf go1.20.linux-amd64.tar.gz
-export PATH="~/go/bin:$PATH"
+export PATH=$PATH:~/go/bin
 mkdir bin
 cd bin || exit
 root=$(pwd)
@@ -48,7 +46,6 @@ git clone --depth 1 --branch "$TAG" https://github.com/Control-D-Inc/ctrld.git
 # Prepare gomobile tool
 sourcePath=./ctrld/cmd/ctrld_library
 cd $sourcePath || exit
-go mod tidy
 go install golang.org/x/mobile/cmd/gomobile@latest
 go get golang.org/x/mobile/bind
 gomobile init
