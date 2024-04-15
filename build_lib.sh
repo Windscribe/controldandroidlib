@@ -37,6 +37,9 @@ update_versionInfo() {
         }
     ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
 }
+wget https://storage.googleapis.com/golang/go1.20.linux-amd64.tar.gz
+tar -C ~ -xzvf go1.20.linux-amd64.tar.gz
+export PATH="~/go/bin:$PATH"
 mkdir bin
 cd bin || exit
 root=$(pwd)
