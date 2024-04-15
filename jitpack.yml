@@ -14,7 +14,7 @@ before_install:
   - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
   - set -o pipefail
 install:
-  - wget https://storage.googleapis.com/golang/go1.20.linux-amd64.tar.gz
-  - tar -C ~ -xzvf go1.20.linux-amd64.tar.gz
+  - wget https://storage.googleapis.com/golang/go1.21.linux-amd64.tar.gz
+  - tar -C ~ -xzvf go1.21.linux-amd64.tar.gz
   - export PATH="~/go/bin:$PATH"
   - ./gradlew build publishToMavenLocal
