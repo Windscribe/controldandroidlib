@@ -1,0 +1,25 @@
+apply plugin: 'maven-publish'
+def LIB_GROUP_ID = 'com.windscribe'
+def LIB_ARTIFACT_ID = 'controld'
+def LIB_VERSION = '1.3.6'
+def aarFile = layout.buildDirectory.file("ctrld.aar")
+
+task build() {
+    exec {
+        executable "./build_lib.sh"
+        args "v$LIB_VERSION"
+        ignoreExitValue true
+    }
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId LIB_GROUP_ID
+                artifactId LIB_ARTIFACT_ID
+                version LIB_VERSION
+                artifact(aarFile)
+            }
+        }
+    }
+}
