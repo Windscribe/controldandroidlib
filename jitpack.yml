@@ -3,9 +3,9 @@ before_install:
   - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
   - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
   - unzip -d android-sdk-linux android-sdk.zip
-  - echo y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-33" >/dev/null
+  - echo y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-34" >/dev/null
   - echo y | android-sdk-linux/tools/bin/sdkmanager "platform-tools" >/dev/null
-  - echo y | android-sdk-linux/tools/bin/sdkmanager "build-tools;33.0.2" >/dev/null
+  - echo y | android-sdk-linux/tools/bin/sdkmanager "build-tools;34.0.0" >/dev/null
   - echo y | android-sdk-linux/tools/bin/sdkmanager "ndk;21.3.6528147" >/dev/null
   - export ANDROID_HOME=$PWD/android-sdk-linux
   - export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
@@ -14,7 +14,7 @@ before_install:
   - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
   - set -o pipefail
 install:
-  - wget https://go.dev/dl/go1.21.9.linux-amd64.tar.gz
-  - tar -C ~ -xzvf go1.21.9.linux-amd64.tar.gz
+  - wget https://go.dev/dl/go1.22.8.linux-amd64.tar.gz
+  - tar -C ~ -xzvf go1.22.8.linux-amd64.tar.gz
   - export PATH="~/go/bin:$PATH"
   - ./gradlew build publishToMavenLocal
