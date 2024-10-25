@@ -75,7 +75,7 @@ go get golang.org/x/mobile/bind
 gomobile init
 
 # Prepare build info
-buildDir="$root/../Sources"
+buildDir="$root/../Build"
 mkdir -p "$buildDir"
 COMMIT=$(git rev-parse HEAD)
 update_versionInfo "$root" "$TAG" "$COMMIT"
