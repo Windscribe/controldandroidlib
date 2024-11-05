@@ -14,7 +14,7 @@ before_install:
   - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
   - set -o pipefail
 install:
-  - wget https://go.dev/dl/go1.22.8.linux-amd64.tar.gz
-  - tar -C ~ -xzvf go1.22.8.linux-amd64.tar.gz
+  - wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
+  - tar -C ~ -xzvf go1.23.1.linux-amd64.tar.gz
   - export PATH="~/go/bin:$PATH"
   - ./gradlew build publishToMavenLocal
