@@ -42,7 +42,7 @@ mkdir bin
 cd bin || exit
 root=$(pwd)
 # Get source from github and switch to tag
-git clone --depth 1 --branch "$TAG" https://github.com/Control-D-Inc/ctrld.git
+git clone --depth 1 --branch "$TAG" https://github.com/Windscribe/ctrld.git
 # Prepare gomobile tool
 sourcePath=./ctrld/cmd/ctrld_library
 cd $sourcePath || exit
