@@ -8,7 +8,7 @@
 #   - Xcode 15 + Build tools
 #   - Go 1.21
 #   - Git
-# usage: $ ./build_lib.sh v1.3.4
+# usage: $ ./build_lib.sh 1.3.4
 
 TAG="$1"
 export PATH=$PATH:~/go/bin
@@ -17,7 +17,7 @@ cd bin || exit
 root=$(pwd)
 
 # Get source from GitHub and switch to the specified tag
-git clone --depth 1 --branch "$TAG" https://github.com/Control-D-Inc/ctrld.git
+git clone --depth 1 --branch "$TAG" https://gitlab.int.windscribe.com/controld/clients/ctrld.git
 
 # Prepare gomobile tool
 sourcePath=./ctrld/cmd/ctrld_library
@@ -32,7 +32,7 @@ mkdir -p "$buildDir"
 COMMIT=$(git rev-parse HEAD)
 
 # Set linker flags with version and commit info
-ldflags="-s -w -X gitlab.int.windscribe.com/controld/clients/ctrld.git/cmd/cli.version=$TAG -X gitlab.int.windscribe.com/controld/clients/ctrld.git/cmd/cli.commit=$COMMIT"
+ldflags="-s -w -X gitlab.int.windscribe.com/controld/clients/ctrld.git/cmd/cli.version=v$TAG -X gitlab.int.windscribe.com/controld/clients/ctrld.git/cmd/cli.commit=$COMMIT"
 
 # Build
 gomobile bind -ldflags="$ldflags" -o "$buildDir"/ctrld.aar || exit
